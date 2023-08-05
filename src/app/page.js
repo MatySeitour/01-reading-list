@@ -1,11 +1,16 @@
-import { BooksContainer } from "./components/BooksContainer";
+
 import { paytone_One } from "../../utils/fonts";
+import dynamic from "next/dynamic";
+import LoadingData from "./loading";
+
+const BookPage = dynamic(() => import("./components/BooksContainer"), {
+  ssr: false, loading: LoadingData
+})
 
 export default function Home() {
   return (
     <main className="min-h-screen w-full pt-20 px-4">
-      <h1 className={`text-white text-6xl text-center mb-4 ${paytone_One.className}`}>Books Store</h1>
-      <BooksContainer />
+      <BookPage />
     </main>
   )
 }
