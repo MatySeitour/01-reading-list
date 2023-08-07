@@ -9,7 +9,7 @@ const BookPage = dynamic(() => import("./components/BooksContainer"), {
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full pt-14 px-4">
+    <main className="min-h-screen bg-black w-full pt-14 px-4">
       <BookPage />
     </main>
   );
