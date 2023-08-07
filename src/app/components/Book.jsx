@@ -21,56 +21,14 @@ export function Book({
     }, 1000);
   }, [genreSelected, myListBookState, searchBook]);
 
-  // useEffect(() => {
-  // gsap.registerPlugin(ScrollTrigger);
-
-  // if (!loadBookState) {
-  //   const tl2 = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: `.book-${book.ISBN}`,
-  //       start: "start 90%",
-  //       end: "start 90%",
-  //     },
-  //   });
-  //   const booksElements = gsap.utils.toArray(`.book-info__${book.ISBN} p`);
-  //   tl2.fromTo(
-  //     `.book-${book.ISBN}`,
-  //     {
-  //       opacity: 0,
-  //       duration: 0.5,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       duration: 0.5,
-  //     }
-  //   );
-  //   booksElements.forEach((element) => {
-  //     tl2.fromTo(
-  //       element,
-  //       {
-  //         opacity: 0,
-  //         yPercent: -10,
-  //         duration: 0.2,
-  //       },
-  //       {
-  //         opacity: 1,
-  //         yPercent: -0,
-  //         duration: 0.2,
-  //       },
-  //       "-=.18"
-  //     );
-  //   });
-  // }
-  // }, [genreSelected, myListBookState, searchBook, loadBookState]);
-
   return (
     <>
       {loadBookState ? (
         <>
           <li
-            className={`rounded-md h-auto book w-full max-w-5xl flex flex-row justify-between relative book-${book.ISBN} border border-white/30`}
+            className={`rounded-md h-auto book w-full max-w-5xl flex flex-col sm:flex-row justify-between relative book-${book.ISBN} border border-white/30`}
           >
-            <div className="animate-wiggle w-72 bg-white/10"></div>
+            <div className="animate-wiggle w-full md:w-72 bg-white/10 h-72 md:h-auto"></div>
             <div
               className={`p-2 flex flex-col gap-4 h-full w-full book-info__${book.ISBN}`}
             >
@@ -94,8 +52,8 @@ export function Book({
               onClick={() => addMyListBook(book)}
               className={
                 isbnArr.includes(book.ISBN)
-                  ? "cursor-pointer absolute top-2 right-2 bg-green-500 text-black p-2 rounded-md text-sm scale-100 transition-all font-medium"
-                  : "scale-100 cursor-pointer transition-all bg-white absolute top-2 right-2 text-black p-2 rounded-md text-sm font-medium"
+                  ? "cursor-pointer absolute top-2 right-2 bg-green-500 border border-transparent text-black p-2 rounded-md text-sm scale-100 transition-all font-medium"
+                  : "scale-100 cursor-pointer transition-all bg-black absolute top-2 right-2 text-white border border-white/30 p-2 rounded-md text-sm font-medium"
               }
             >
               {isbnArr.includes(book.ISBN)
