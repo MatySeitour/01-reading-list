@@ -7,6 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        wiggle: {
+          '0%': { background: "#111" },
+          '100%': {
+            background: "#222"
+          },
+        },
+      },
+      animation: {
+        'wiggle': 'wiggle .8s ease-in-out infinite alternate',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
