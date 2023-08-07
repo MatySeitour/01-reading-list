@@ -61,3 +61,7 @@ body {
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
