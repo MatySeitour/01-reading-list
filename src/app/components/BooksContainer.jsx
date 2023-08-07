@@ -6,12 +6,6 @@ import { paytone_One } from "../../../utils/fonts";
 import { gsap } from "gsap-trial";
 import SplitType from "split-type";
 import { Book } from "./Book";
-import { DndContext, closestCenter } from "@dnd-kit/core";
-import {
-  SortableContext,
-  verticalListSortingStrategy,
-  arrayMove,
-} from "@dnd-kit/sortable";
 
 export default function BooksContainer() {
   const { library } = booksData;
