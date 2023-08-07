@@ -136,6 +136,7 @@ export default function BooksContainer() {
   }, []);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     let title = new SplitType(".title");
     let chars = title;
 
@@ -150,7 +151,7 @@ export default function BooksContainer() {
 
     tl.fromTo(
       "h1",
-      { ease: "power3.inOut", yPercent: 150, duration: 1, scale: 2 },
+      { ease: "power3.inOut", yPercent: 150, duration: 1, scale: 1.4 },
       { ease: "power3.inOut", yPercent: 0, duration: 1, scale: 1 },
       "-=.5"
     );
@@ -172,9 +173,9 @@ export default function BooksContainer() {
     <div className={`h-auto p-4 w-full max-w-7xl mx-auto`}>
       <div className="flex justify-center">
         <h1
-          className={`title text-white text-6xl text-center mb-4 ${paytone_One.className} max-w-sm`}
+          className={`title text-white text-4xl md:text-6xl text-center mb-4 ${paytone_One.className} max-w-sm sm:max-w-md`}
         >
-          Books Store
+          Books Store📚
         </h1>
       </div>
 
@@ -196,7 +197,7 @@ export default function BooksContainer() {
           className={` md:text-left text-white text-2xl md:text-4xl text-center mb-10 ${paytone_One.className}`}
         >
           {" "}
-          Mi lista de lirbos: {myListBook.length}
+          Mi lista de libros: {myListBook.length}
         </h3>
         <nav className="sticky top-4 z-10 mb-10 flex items-center justify-center overflow-hidden">
           <div className="flex justify-between gap-4 w-full bg-[#222a] backdrop-blur-sm p-2 lg:flex-row flex-col rounded-md lg:max-w-none max-w-md">
@@ -208,10 +209,9 @@ export default function BooksContainer() {
                 setGenreSelected(e.target.value);
               }}
             >
-              <option
-                key={1231}
-                value="Todos"
-              >{`Todos (${booksLibrary.length})`}</option>
+              <option key={0} value="Todos">{`Todos (${
+                !myListBookState ? booksLibrary.length : myListBookFilter.length
+              })`}</option>
               {getNumberGenre.map((genre) => (
                 <option
                   key={genre.genre}
@@ -229,7 +229,7 @@ export default function BooksContainer() {
                 max={1400}
                 value={pagesFilter}
               />
-              <output className="text-center text-sm">
+              <output className="text-center text-sm text-white">
                 Número de páginas: Menos de {pagesFilter}
               </output>
             </div>
@@ -267,7 +267,7 @@ export default function BooksContainer() {
                 />
               ))
             ) : (
-              <p className={`${paytone_One.className} text-xl`}>
+              <p className={`${paytone_One.className} text-xl text-white`}>
                 No hay resultados
               </p>
             )
@@ -285,7 +285,9 @@ export default function BooksContainer() {
               />
             ))
           ) : (
-            <div>No hay resultados</div>
+            <p className={`${paytone_One.className} text-xl text-white`}>
+              No hay resultados
+            </p>
           )}
         </ul>
       </section>
